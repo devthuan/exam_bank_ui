@@ -1,0 +1,30 @@
+.wrapper {
+    border-bottom: 1px solid black;
+}
+
+.row__header {
+    height: 60px;
+}
+
+.box__avatar {
+    width: 45px;
+    height: 45px;
+    border: 1px solid black;
+    border-radius: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar__icon {
+    font-size: 30px;
+    color: var(--secondary)
+}
+
+.custom-dropdown-toggle {
+    border: none;
+}
+
+.custom-dropdown-toggle::after {
+    display: none !important;
+}
