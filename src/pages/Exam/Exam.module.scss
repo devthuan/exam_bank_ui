@@ -6,18 +6,35 @@
 .content {
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
+.input__search {
+    width: 500px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.icon_search {
+    position: absolute;
+    right: 27px;
+    font-size: 25px;
+
+}
 
 
 .btn__document {
     width: 120px;
     height: 30px;
     font-size: 15px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .table {
-    
+    margin-top: 50px;
 }

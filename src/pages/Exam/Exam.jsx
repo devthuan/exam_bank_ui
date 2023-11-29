@@ -3,19 +3,19 @@ import styles from "./Exam.module.scss";
 
 import Container from "react-bootstrap/Container";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDownload } from "@fortawesome/free-solid-svg-icons";
-import { Row, Col, Button, Table } from "react-bootstrap";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { Row, Col, Form, Button, Table } from "react-bootstrap";
 
 import TitleComponent from "../../Components/TitleComponent/TitleComponent";
 import { NavLink, useParams } from "react-router-dom";
-import Logo from "../../assets/images/logo_sgu.jpg";
+import ModalExam from "./components/ModalExam/ModalExam";
+import { useState } from "react";
 
 const cx = className.bind(styles);
 
 const Exam = () => {
   const { nameUni, nameMajor, nameSub } = useParams();
-  console.log(nameUni, nameMajor, nameSub);
-
+  const [modalShow, setModalShow] = useState(false);
   const listExam = [
     {
       id: 1,
@@ -49,6 +49,17 @@ const Exam = () => {
         <TitleComponent title={`${nameUni} / ${nameMajor} / ${nameSub}`} />
       </Row>
       <Row>
+        <div className={cx("input__search")}>
+          <Form.Control
+            aria-label="Default"
+            aria-describedby="inputGroup-sizing-default"
+            placeholder="Tìm kiếm theo tên đề thi"
+          />
+
+          <FontAwesomeIcon className={cx("icon_search")} icon={faMagnifyingGlass} />
+        </div>
+      </Row>
+      <Row>
         <Row xs="auto" className="justify-content-md-center">
           <Table className={cx("table")} striped="columns">
             <thead>
@@ -71,14 +82,20 @@ const Exam = () => {
                     <td>{item.exam}</td>
                     <td>{item.subject}</td>
                     <td>{item.semester}</td>
-                    <td>{item.numSentences}</td>
                     <td>{item.year}</td>
+                    <td>{item.numSentences}</td>
                     <td>
-                      <NavLink to={``}>
-                        <Button size="sm" className={cx("btn__document")}>
-                          Xem ngay
-                        </Button>
-                      </NavLink>
+                      <Button
+                        onClick={() => setModalShow(true)}
+                        className={cx("btn__document")}
+                      >
+                        Xem ngay
+                      </Button>
+
+                      <ModalExam
+                        show={modalShow}
+                        onHide={() => setModalShow(false)}
+                      />
                     </td>
                   </tr>
                 ))}
