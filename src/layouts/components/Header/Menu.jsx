@@ -5,45 +5,39 @@ import Container from "react-bootstrap/Container";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUser,
-  faMagnifyingGlass,
   faMoneyBill,
   faClock,
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   Row,
-  Stack,
-  Button,
-  Form,
-  DropdownButton,
-  InputGroup,
+  Nav,
+  Navbar,
 } from "react-bootstrap";
 import Dropdown from "react-bootstrap/Dropdown";
+import { NavLink } from "react-router-dom";
 
 const cx = className.bind(styles);
-const Header = () => {
+const Menu = () => {
   return (
     <Container className={cx("wrapper")}>
       <Row className={cx("row__header")}>
-        <Stack direction="horizontal" gap={3}>
-          <div className="p-2 ms-auto">
-            <div className={cx("box_search")}>
-              <Form.Control
-                size="lg"
-                className={cx("input_search")}
-                placeholder="Tìm kiếm theo tên môn học"
-                aria-label="Recipient's username"
-                aria-describedby="basic-addon2"
-                type="text"
-              />
-              <FontAwesomeIcon
-                className={cx("icon_search")}
-                icon={faMagnifyingGlass}
-              />
+        <Navbar bg="light" data-bs-theme="light">
+          <Container className={cx("nav__content")}>
+            <div className="logo">
+              <Navbar.Brand>Exam Bank</Navbar.Brand>
             </div>
-          </div>
-          <div className="p-2 ms-auto">1 VND</div>
-          <div className="p-2">
+
+            <Nav className={cx("nav")}>
+              <NavLink to="/">Trang chủ</NavLink>
+              <Nav.Link href="/#university">
+                <NavLink >Đại học</NavLink>
+              </Nav.Link>
+              <NavLink to="/document">Tài liệu</NavLink>
+            </Nav>
+          </Container>
+          <div className={cx("nav__user")}>
+            <div className="">1 VND</div>
             <div className={cx("box__avatar")}>
               <Dropdown>
                 <Dropdown.Toggle
@@ -57,29 +51,41 @@ const Header = () => {
                   />
                 </Dropdown.Toggle>
 
-                <Dropdown.Menu>
-                  <Dropdown.Item className={cx("item_dropdown")} href="#/action-1">
+                <Dropdown.Menu align={"end"}>
+                  <Dropdown.Item
+                    className={cx("item_dropdown")}
+                    href="#/action-1"
+                  >
                     <FontAwesomeIcon
                       className={cx("icon_dropdown")}
                       icon={faUser}
                     />
                     Tài khoản
                   </Dropdown.Item>
-                  <Dropdown.Item className={cx("item_dropdown")} href="#/action-2">
+                  <Dropdown.Item
+                    className={cx("item_dropdown")}
+                    href="#/action-2"
+                  >
                     <FontAwesomeIcon
                       className={cx("icon_dropdown")}
                       icon={faMoneyBill}
                     />
                     Nạp tiền
                   </Dropdown.Item>
-                  <Dropdown.Item className={cx("item_dropdown")} href="#/action-3">
+                  <Dropdown.Item
+                    className={cx("item_dropdown")}
+                    href="#/action-3"
+                  >
                     <FontAwesomeIcon
                       className={cx("icon_dropdown")}
                       icon={faClock}
                     />
                     Lịch sử
                   </Dropdown.Item>
-                  <Dropdown.Item className={cx("item_dropdown")} href="#/action-3">
+                  <Dropdown.Item
+                    className={cx("item_dropdown")}
+                    href="#/action-3"
+                  >
                     <FontAwesomeIcon
                       className={cx("icon_dropdown")}
                       icon={faRightFromBracket}
@@ -90,10 +96,10 @@ const Header = () => {
               </Dropdown>
             </div>
           </div>
-        </Stack>
+        </Navbar>
       </Row>
     </Container>
   );
 };
 
-export default Header;
+export default Menu;

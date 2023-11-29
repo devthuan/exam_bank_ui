@@ -1,0 +1,60 @@
+.container {
+    max-width: 1280px;
+}
+
+.title {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    margin-top: 90px;
+    font-size: 30px;
+    gap: 30px;
+    &::before{
+        content: "";
+        width: 30%;
+        height: 1px;
+        background-color: var(--color-black);
+    }
+    &::after{
+        content: "";
+        width: 30%;
+        height: 1px;
+        background-color: var(--color-black);
+    }
+}
+
+
+
+
+.box__university{
+    width: 305px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // border: 2px solid var(--color-secondary);
+    border-radius: 20px;
+    border: 1px solid var(--color-black);
+    padding: 10px;
+    margin-top: 50px;
+}
+.img_uni{
+    width: 200px;
+    border-radius: 180px;
+
+}
+.name__uni{
+    font-size: 21px;
+    margin: 20px 0;
+
+}
+
+
+
+
+.btn__uni {
+    width: 200px;
+    height: 40px;
+    font-size: 19px;
+    margin-bottom: 15px;
+}
