@@ -20,12 +20,10 @@ const University = () => {
     <Container fluid={false} className={cx("container")} data-bs-theme="light">
       <Row>
         <Col>
-          <h1 id="university" className={cx("title")}>
-            Trường đại học
-          </h1>
+          <h1 className={cx("title")}>Trường đại học</h1>
         </Col>
       </Row>
-      <Row xs="auto" className="justify-content-md-center">
+      <Row id="university" xs="auto" className="justify-content-md-center">
         {listUniversity &&
           listUniversity.map((item, index) => (
             <Col key={index}>
@@ -38,7 +36,6 @@ const University = () => {
                 <h2 className={cx("name__uni")}>{item.name}</h2>
                 <NavLink to={`/major/${item.name}`}>
                   <Button className={cx("btn__uni")}>Xem ngay</Button>
-
                 </NavLink>
               </div>
             </Col>

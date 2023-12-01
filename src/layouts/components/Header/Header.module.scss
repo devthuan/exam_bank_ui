@@ -75,6 +75,17 @@
     gap: 20px;
 }
 
+.icon__login {
+    margin-right: 15px;
+    font-size: 35px;
+    color: var(--dark);
+
+    &:hover{
+      color: var(--primary);
+      transition: 0.8s all;
+    }
+}
+
 
 .drop_down_menu {
     margin-right: 0;

@@ -1,0 +1,132 @@
+.container {
+    height: auto;
+    margin-top: 10px;
+   
+}
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid var(--color-black);
+    padding-bottom: 13px;
+}
+
+.btn__out {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+}
+.btn_submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.box__name_exam{
+    display: flex;
+    justify-content: center;
+}
+.text{
+    font-size: 23px;
+}
+.box__right{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 40px;
+
+}
+.box__time{
+    width: 160px;
+    height: 35px;
+    border-radius: 10px;
+    border: 1px solid var(--color-black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 21px;
+}
+
+.box__content {
+    margin-top: 30px;
+}
+
+.box__question{
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.num_question {
+    font-weight: 700;
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.group__answer{
+    margin-top: 10px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+}
+.title_answer {
+    padding-top: 10px;
+    font-weight: 600;
+    font-size: 16px;
+}
+.item_option {
+    width: 2.1rem;
+    height: 2.1rem;
+    border: 1px solid var(--color-black);
+    border-radius: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+
+}
+
+.active__answer {
+    background-color: var(--primary);
+    color: var(--color-white);
+    border: none;
+    transition: 0.8s all;
+}
+
+.container__result {
+    display: flex;
+    justify-content: start;
+    gap: 10px;
+    border: 1px solid var(--color-black);
+    padding: 15px 0;
+    padding-left: 12px;
+    border-radius: 10px;
+    margin: auto;
+}
+
+.text_question{
+    margin-bottom: 30px;
+    font-size: 17px;
+}
+
+.item_num_question {
+    color: var(--color-black);
+    border: 1px solid var(--color-black);
+    width: 50px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    border-radius: 10px;
+    font-size: 18px;
+    
+}
+
+.active_num_question {
+    color: var(--color-white);
+    border: none;
+    background-color: var(--primary);
+}

@@ -1,5 +1,6 @@
 import className from "classnames/bind";
 import styles from "./ModalExam.module.scss";
+import { NavLink, useParams } from "react-router-dom";
 
 import { Modal, Button } from "react-bootstrap";
 
@@ -31,9 +32,11 @@ const ModalExam = (props) => {
         <p>Số lượng lần làm đề</p>
       </Modal.Body>
       <Modal.Footer className={cx("box__btn")}>
-        <Button className={cx("btn")} onClick={props.onHide}>
-          Thi Ngay
-        </Button>
+        <NavLink to={`/test/${props.idExam}`}>
+          <Button className={cx("btn")} onClick={props.onHide}>
+            Thi Ngay
+          </Button>
+        </NavLink>
       </Modal.Footer>
     </Modal>
   );

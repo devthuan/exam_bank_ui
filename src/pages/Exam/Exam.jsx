@@ -51,6 +51,7 @@ const Exam = () => {
       <Row>
         <div className={cx("input__search")}>
           <Form.Control
+          size="lg"
             aria-label="Default"
             aria-describedby="inputGroup-sizing-default"
             placeholder="Tìm kiếm theo tên đề thi"
@@ -95,6 +96,7 @@ const Exam = () => {
                       <ModalExam
                         show={modalShow}
                         onHide={() => setModalShow(false)}
+                        idExam={item.id}
                       />
                     </td>
                   </tr>
