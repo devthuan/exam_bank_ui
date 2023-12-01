@@ -61,6 +61,7 @@ const Menu = () => {
             <FontAwesomeIcon
               className={cx("icon__login")}
               icon={faRightToBracket}
+              fade
             />
 
             </NavLink>

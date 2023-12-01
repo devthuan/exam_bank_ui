@@ -1,6 +1,6 @@
 import className from "classnames/bind";
 import styles from "./ModalTest.module.scss";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExclamation } from "@fortawesome/free-solid-svg-icons";
 import { Modal, Button } from "react-bootstrap";
@@ -8,6 +8,12 @@ import { Modal, Button } from "react-bootstrap";
 const cx = className.bind(styles);
 
 const ModalTest = (props) => {
+  const navigate = useNavigate();
+
+  const handleBtnConfirm = () => {
+    navigate(props.goBack);
+  };
+
   return (
     <Modal
       {...props}
@@ -33,7 +39,9 @@ const ModalTest = (props) => {
         <Button onClick={props.onHide} variant="secondary">
           Đóng
         </Button>
-        <Button variant="primary">Xác nhận</Button>
+        <Button onClick={() => handleBtnConfirm()} variant="primary">
+          Xác nhận
+        </Button>
       </Modal.Footer>
     </Modal>
   );

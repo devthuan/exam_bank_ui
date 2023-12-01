@@ -10,7 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Row, Col, Button, Card } from "react-bootstrap";
 
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ModalTest from "./components/ModalTest/ModalTest";
 import CountDownTimer from "../../Components/CountDownTimer/CountDownTimer";
@@ -133,6 +133,10 @@ const Test = () => {
     }
   };
 
+  const handleBtnExit = () => {
+    setModalShowExit(true);
+  };
+
   const handleTimeout = () => {
     console.log("Hết thời gian!");
   };
@@ -142,7 +146,7 @@ const Test = () => {
       <Row className={cx("content")}>
         <Col md={2}>
           <Button
-            onClick={() => setModalShowExit(true)}
+            onClick={() => handleBtnExit()}
             className={cx("btn__out")}
             variant="danger"
           >
@@ -153,10 +157,10 @@ const Test = () => {
             show={modalShowExit}
             onHide={() => setModalShowExit(false)}
             ModalTitle={"Bạn có chắc chắn muốn thoát ?"}
-           
             ModalContent={
               "Khi bạn xác nhận thoát bài thi, bạn sẽ không thể tiếp tục làm bài ở lần thi này. Kết quả làm bài của bạn sẽ bị huỷ."
             }
+            goBack={-1}
           />
         </Col>
         <Col md={6} className={cx("box__name_exam")}>

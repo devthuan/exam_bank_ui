@@ -86,9 +86,11 @@ const Register = () => {
         />
       </Form.Group>
       <div className={cx("box__center")}>
-        <Button className={cx("mb-5", "btn__login")} type="submit">
+       <NavLink to={"/account-authentication"}>
+         <Button className={cx("mb-5", "btn__login")} type="submit">
           Đăng ký
         </Button>
+       </NavLink>
         <Form.Group className="mb-3">
           <Form.Label className={cx("link__register")}>
             Bạn đã có tài khoản ?<NavLink to={"/login"}>Đăng nhập</NavLink>

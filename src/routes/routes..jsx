@@ -9,6 +9,7 @@ import Major from "../pages/Major/Major";
 import Subject from "../pages/Subject/Subject";
 import Test from "../pages/Test/Test";
 import Register from "../pages/Authenticate/Register";
+import AccountAuthen from "../pages/Authenticate/AccountAuthen";
 
 const publicRoutes = [
   { path: "/", component: Home, layout: DefaultLayout },
@@ -37,6 +38,11 @@ const publicRoutes = [
   {
     path: "/register",
     component: Register,
+    layout: AuthenticateLayout,
+  },
+  {
+    path: "/account-authentication",
+    component: AccountAuthen,
     layout: AuthenticateLayout,
   },
 ];

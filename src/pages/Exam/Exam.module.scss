@@ -37,4 +37,24 @@
 
 .table {
     margin-top: 50px;
+    max-width: 1280px;
+}
+
+.box__exam {
+    max-width: 1280px;
+    margin: auto;
+    margin-top: 50px;
+}
+.box__card {
+    margin-bottom: 20px;
+}
+
+.card__item {
+    height: 320px;
+}
+
+.not__found{
+    width: 100%;
+    text-align: center;
+    margin: 100px 0;
 }

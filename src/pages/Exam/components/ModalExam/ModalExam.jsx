@@ -15,21 +15,21 @@ const ModalExam = (props) => {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title
+        <h4
           className={cx("title__modal")}
-          id="contained-modal-title-vcenter"
+          
         >
           Tên đề thi
-        </Modal.Title>
+        </h4>
       </Modal.Header>
       <Modal.Body>
-        <h4>Centered Modal</h4>
-        <p>Tên trường</p>
-        <p>Tên ngành</p>
-        <p>Số câu hỏi</p>
-        <p>Thời gian thi</p>
-        <p>Phương thức thi</p>
-        <p>Số lượng lần làm đề</p>
+        <p>Trường <span className={cx("format_uni")}>:</span></p>
+        <p>Chuyên ngành <span className={cx("format_major")}>:</span> </p>
+        <p>Môn Học <span className={cx("format_subject")}>:</span></p>
+        <p>Số câu hỏi <span className={cx("format_question")}>:</span> </p>
+        <p>Thời gian thi <span className={cx("format_time")}>:</span> </p>
+        <p>Phương thức thi <span className={cx("format_method")}>:</span> </p>
+        <p>Số lượng lần làm đề <span className={cx("format_num")}>:</span> </p>
       </Modal.Body>
       <Modal.Footer className={cx("box__btn")}>
         <NavLink to={`/test/${props.idExam}`}>
