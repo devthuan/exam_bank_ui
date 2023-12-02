@@ -87,7 +87,7 @@ const Result = () => {
             </Row>
             <Row>
               <Button className={cx("btn__result")}>
-                <NavLink to={""} className={cx("btn__result-text")}>
+                <NavLink to={"/answer"} className={cx("btn__result-text")}>
                   Xem đáp án
                   <FontAwesomeIcon
                     className={cx("btn__result-icon")}

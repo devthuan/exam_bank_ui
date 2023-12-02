@@ -11,6 +11,7 @@ import Test from "../pages/Test/Test";
 import Register from "../pages/Authenticate/Register";
 import AccountAuthen from "../pages/Authenticate/AccountAuthen";
 import Result from "../pages/Result/Result";
+import Answer from "../pages/Answer/Answer";
 
 const publicRoutes = [
   { path: "/", component: Home, layout: DefaultLayout },
@@ -50,6 +51,11 @@ const publicRoutes = [
     path: "/result",
     component: Result,
     layout: DefaultLayout,
+  },
+  {
+    path: "/answer",
+    component: Answer,
+    layout: ExamLayout,
   },
 ];
 
