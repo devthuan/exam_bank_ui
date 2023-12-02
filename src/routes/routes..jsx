@@ -10,6 +10,7 @@ import Subject from "../pages/Subject/Subject";
 import Test from "../pages/Test/Test";
 import Register from "../pages/Authenticate/Register";
 import AccountAuthen from "../pages/Authenticate/AccountAuthen";
+import Result from "../pages/Result/Result";
 
 const publicRoutes = [
   { path: "/", component: Home, layout: DefaultLayout },
@@ -44,6 +45,11 @@ const publicRoutes = [
     path: "/account-authentication",
     component: AccountAuthen,
     layout: AuthenticateLayout,
+  },
+  {
+    path: "/result",
+    component: Result,
+    layout: DefaultLayout,
   },
 ];
 

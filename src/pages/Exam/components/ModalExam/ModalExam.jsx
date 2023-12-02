@@ -23,8 +23,8 @@ const ModalExam = (props) => {
         </h4>
       </Modal.Header>
       <Modal.Body>
-        <p>Trường <span className={cx("format_uni")}>:</span></p>
-        <p>Chuyên ngành <span className={cx("format_major")}>:</span> </p>
+        <p>Trường <span className={cx("format_uni")}>:</span> </p>
+        <p>Chuyên ngành <span className={cx("format_major")}>: </span> </p>
         <p>Môn Học <span className={cx("format_subject")}>:</span></p>
         <p>Số câu hỏi <span className={cx("format_question")}>:</span> </p>
         <p>Thời gian thi <span className={cx("format_time")}>:</span> </p>
@@ -32,7 +32,7 @@ const ModalExam = (props) => {
         <p>Số lượng lần làm đề <span className={cx("format_num")}>:</span> </p>
       </Modal.Body>
       <Modal.Footer className={cx("box__btn")}>
-        <NavLink to={`/test/${props.idExam}`}>
+        <NavLink to={`/test/${props.idexam}`}>
           <Button className={cx("btn")} onClick={props.onHide}>
             Thi Ngay
           </Button>

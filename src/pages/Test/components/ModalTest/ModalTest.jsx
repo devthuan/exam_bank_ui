@@ -39,9 +39,12 @@ const ModalTest = (props) => {
         <Button onClick={props.onHide} variant="secondary">
           Đóng
         </Button>
+        <NavLink to={props.route}>
         <Button onClick={() => handleBtnConfirm()} variant="primary">
           Xác nhận
         </Button>
+
+        </NavLink>
       </Modal.Footer>
     </Modal>
   );

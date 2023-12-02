@@ -165,14 +165,14 @@ const Exam = () => {
                 <ModalExam
                   show={modalShow}
                   onHide={() => setModalShow(false)}
-                  idExam={item.id}
+                  idexam={item.id}
                 />
               </Card>
             </Col>
           ))
         ) : (
           <Row>
-            <h5 className={cx("not__found")}>Không tìm thấy môn học...</h5>
+            <h5 className={cx("not__found")}>Không tìm thấy đề thi...</h5>
           </Row>
         )}
       </Row>

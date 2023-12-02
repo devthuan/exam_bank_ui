@@ -186,6 +186,7 @@ const Test = () => {
               ModalContent={
                 "Khi xác nhận nhấn nộp bài, bạn sẽ không thể sửa lại bài thi của mình. Hãy chắc chắn bạn đã xem lại tất cả các đáp án. Chúc bạn may mắn!"
               }
+              route={"/result"}
             />
           </div>
         </Col>

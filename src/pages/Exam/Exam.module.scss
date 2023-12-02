@@ -51,6 +51,19 @@
 
 .card__item {
     height: 320px;
+
+    animation: card__item 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+
+@keyframes card__item {
+    0% {
+        transform: translateZ(-160px) translateY(100px);
+    }
+
+    100% {
+        transform: translateZ(0) translateY(0);
+    }
 }
 
 .not__found{
