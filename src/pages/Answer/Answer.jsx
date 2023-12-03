@@ -3,117 +3,17 @@ import styles from "./Answer.module.scss";
 
 import Container from "react-bootstrap/Container";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronLeft,
-  faUser,
-} from "@fortawesome/free-solid-svg-icons";
-import {
-  Row,
-  Col,
-  Button,
-  Card,
-  Form,
-} from "react-bootstrap";
+import { faChevronLeft, faUser } from "@fortawesome/free-solid-svg-icons";
+import { Row, Col, Button, Card, Form } from "react-bootstrap";
 
 import { NavLink, useParams } from "react-router-dom";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const cx = className.bind(styles);
 const Answer = () => {
   const [toggle, setToggle] = useState(false);
-  const listQuestion = [
-    {
-      id: 1,
-      question:
-        "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.",
-      selectedAnswer: "A",
-      answer: "A",
-    },
-    {
-      id: 2,
-      question:
-        "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.",
-      selectedAnswer: "B",
-      answer: "A",
-    },
-    {
-      id: 3,
-      question:
-        "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.",
-      selectedAnswer: "C",
-      answer: "A",
-    },
-    {
-      id: 4,
-      question:
-        "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.",
-      selectedAnswer: "D",
-      answer: "A",
-    },
-    {
-      id: 5,
-      question:
-        "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.",
-      selectedAnswer: null,
-      answer: "A",
-    },
-    {
-      id: 6,
-      question:
-        "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.",
-      selectedAnswer: null,
-      answer: "A",
-    },
-    {
-      id: 7,
-      question:
-        "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.",
-      selectedAnswer: null,
-      answer: "A",
-    },
-    {
-      id: 8,
-      question:
-        "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.",
-      selectedAnswer: null,
-      answer: "A",
-    },
-    {
-      id: 9,
-      question:
-        "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.",
-      selectedAnswer: null,
-      answer: "A",
-    },
-    {
-      id: 10,
-      question:
-        "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.",
-      selectedAnswer: null,
-      answer: "A",
-    },
-    {
-      id: 11,
-      question:
-        "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.",
-      selectedAnswer: null,
-      answer: "A",
-    },
-    {
-      id: 12,
-      question:
-        "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.",
-      selectedAnswer: null,
-      answer: "A",
-    },
-    {
-      id: 13,
-      question:
-        "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.",
-      selectedAnswer: null,
-      answer: "A",
-    },
-  ];
+  const listQuestion = useSelector((state) => state.test.data);
 
   const handleClickComment = () => {
     setToggle(!toggle);

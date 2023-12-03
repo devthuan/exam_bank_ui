@@ -3,21 +3,33 @@ import styles from "./Home.module.scss";
 
 import Container from "react-bootstrap/Container";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faUser,
-  faMagnifyingGlass,
-  faMoneyBill,
-  faClock,
-  faRightFromBracket,
-} from "@fortawesome/free-solid-svg-icons";
-import { Row, Col, Card } from "react-bootstrap";
-import Dropdown from "react-bootstrap/Dropdown";
-import LogoSGU from "../../assets/images/logo_sgu.jpg";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { Row } from "react-bootstrap";
 import Banner from "./components/Banner/Banner";
 import University from "./components/University/University";
+import { useDispatch, useSelector } from "react-redux";
+import Loading from "../../Components/Loading/Loading";
+import { setLoading } from "../../redux/features/UniversitySlice/UniversitySlice";
+import { useEffect } from "react";
 
 const cx = className.bind(styles);
 const Home = () => {
+  const dispatch = useDispatch();
+
+  const isLoading = useSelector((state) => state.university.loading);
+
+  useEffect(() => {
+    const delay = setTimeout(() => {
+      dispatch(setLoading(false));
+    }, 800);
+
+    return () => clearTimeout(delay);
+  }, [dispatch]);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
     <Container className={cx("container")}>
       <Row className={cx("content")}>

@@ -5,21 +5,12 @@ import Container from "react-bootstrap/Container";
 import { Row, Col, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse, faFolder } from "@fortawesome/free-solid-svg-icons";
-import LogoUni from "../../../../assets/images/logo_sgu.jpg";
 import { NavLink } from "react-router-dom";
-import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const cx = className.bind(styles);
 const University = () => {
-  const listUniversity = [
-    { id: 1, name: "Đại học Sài Gòn", logo: LogoUni },
-    { id: 2, name: "Đại học Bách Khoa", logo: LogoUni },
-    { id: 3, name: "Đại học Việt Hàn", logo: LogoUni },
-    { id: 4, name: "Đại học Y Huế", logo: LogoUni },
-    { id: 5, name: "Đại học Y Huế", logo: LogoUni },
-  ];
-
-
+  const listUniversity = useSelector((item) => item.university.data);
 
   return (
     <Container fluid={false} className={cx("container")}>

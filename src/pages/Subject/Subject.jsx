@@ -8,18 +8,30 @@ import { Row, Col, Button } from "react-bootstrap";
 
 import TitleComponent from "../../Components/TitleComponent/TitleComponent";
 import { NavLink, useParams } from "react-router-dom";
-import Logo from "../../assets/images/logo_sgu.jpg";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { setLoading } from "../../redux/features/SubjectSlice/SubjectSlice";
+import Loading from "../../Components/Loading/Loading";
 
 const cx = className.bind(styles);
 const Subject = () => {
+  const dispatch = useDispatch();
   const { nameUni, nameMajor } = useParams();
-  console.log(nameUni, nameMajor);
 
-  const listSubject = [
-    { id: 1, subject: "lý thuyết đồ thị", logo: Logo, numSubject: 5 },
-    { id: 2, subject: "Hệ điều hành", logo: Logo, numSubject: 5 },
-    { id: 3, subject: "Lập trình hướng đối tượng", logo: Logo, numSubject: 5 },
-  ];
+  const listSubject = useSelector((data) => data.subject.data);
+  const isLoading = useSelector((data) => data.subject.loading);
+
+  useEffect(() => {
+    const delay = setTimeout(() => {
+      dispatch(setLoading(false));
+    }, 1000);
+
+    return () => clearTimeout(delay);
+  }, [dispatch]);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <Container className={cx("container")}>

@@ -9,65 +9,21 @@ import { Row, Col, Form, Button, Table, Card } from "react-bootstrap";
 import TitleComponent from "../../Components/TitleComponent/TitleComponent";
 import { NavLink, useParams } from "react-router-dom";
 import ModalExam from "./components/ModalExam/ModalExam";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Loading from "../../Components/Loading/Loading";
+import { setLoading } from "../../redux/features/ExamSlice/ExamSlice";
 
 const cx = className.bind(styles);
 
 const Exam = () => {
+  const dispatch = useDispatch();
   const { nameUni, nameMajor, nameSub } = useParams();
   const [modalShow, setModalShow] = useState(false);
   const [search, setSearch] = useState("");
 
-  const listExam = [
-    {
-      id: 1,
-      exam: "Đề thi cuối kỳ môn Giải tích 2",
-      subject: "Giải tích 2",
-      semester: "cuối kì 2",
-      year: "2022 - 2023",
-      numSentences: 60,
-    },
-    {
-      id: 2,
-      exam: "Đề thi cuối kỳ môn Giải tích 1",
-      subject: "Giải tích 2",
-      semester: "cuối kì 2",
-      year: "2022 - 2023",
-      numSentences: 60,
-    },
-    {
-      id: 3,
-      exam: "Đề thi cuối kỳ môn lý thuyết đồ thị",
-      subject: "Giải tích 2",
-      semester: "cuối kì 2",
-      year: "2022 - 2023",
-      numSentences: 60,
-    },
-    {
-      id: 4,
-      exam: "Đề thi cuối kỳ môn hệ điểu hành",
-      subject: "Giải tích 2",
-      semester: "cuối kì 2",
-      year: "2022 - 2023",
-      numSentences: 60,
-    },
-    {
-      id: 5,
-      exam: "Đề thi cuối kỳ môn cơ sơ dữ liệu",
-      subject: "Giải tích 2",
-      semester: "cuối kì 2",
-      year: "2022 - 2023",
-      numSentences: 60,
-    },
-    {
-      id: 6,
-      exam: "Đề thi cuối kỳ môn lập trình hướng đối tượng",
-      subject: "Giải tích 2",
-      semester: "cuối kì 2",
-      year: "2022 - 2023",
-      numSentences: 60,
-    },
-  ];
+  const listExam = useSelector((state) => state.exam.data);
+  const isLoading = useSelector((state) => state.exam.loading);
 
   const handleInputSearch = (e) => {
     setSearch(e.target.value);
@@ -76,6 +32,18 @@ const Exam = () => {
   const filterExams = listExam.filter((item) =>
     item.exam.toLowerCase().includes(search.toLowerCase())
   );
+
+  useEffect(() => {
+    const delay = setTimeout(() => {
+      dispatch(setLoading(false));
+    }, 1000);
+
+    return () => clearTimeout(delay);
+  }, [dispatch]);
+
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <Container className={cx("container")}>
       <Row className={cx("content")}>

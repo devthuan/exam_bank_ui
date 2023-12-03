@@ -14,6 +14,7 @@ import { NavLink, useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ModalTest from "./components/ModalTest/ModalTest";
 import CountDownTimer from "../../Components/CountDownTimer/CountDownTimer";
+import { useSelector } from "react-redux";
 
 const cx = className.bind(styles);
 const Test = () => {
@@ -23,86 +24,7 @@ const Test = () => {
   const [modalShowExit, setModalShowExit] = useState(false);
   const [modalShowSubmit, setModalShowSubmit] = useState(false);
 
-  const listQuestion = [
-    {
-      id: 1,
-      question:
-        "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.",
-      selectedAnswer: null,
-    },
-    {
-      id: 2,
-      question:
-        "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.",
-      selectedAnswer: null,
-    },
-    {
-      id: 3,
-      question:
-        "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.",
-      selectedAnswer: null,
-    },
-    {
-      id: 4,
-      question:
-        "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.",
-      selectedAnswer: null,
-    },
-    {
-      id: 5,
-      question:
-        "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.",
-      selectedAnswer: null,
-    },
-    {
-      id: 6,
-      question:
-        "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.",
-      selectedAnswer: null,
-    },
-    {
-      id: 7,
-      question:
-        "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.",
-      selectedAnswer: null,
-    },
-    {
-      id: 8,
-      question:
-        "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.",
-      selectedAnswer: null,
-    },
-    {
-      id: 9,
-      question:
-        "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.",
-      selectedAnswer: null,
-    },
-    {
-      id: 10,
-      question:
-        "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.",
-      selectedAnswer: null,
-    },
-    {
-      id: 11,
-      question:
-        "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.",
-      selectedAnswer: null,
-    },
-    {
-      id: 12,
-      question:
-        "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.",
-      selectedAnswer: null,
-    },
-    {
-      id: 13,
-      question:
-        "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.",
-      selectedAnswer: null,
-    },
-  ];
+  const listQuestion = useSelector((state) => state.test.data);
 
   const handleAnswer = (answerResult, numQuestion) => {
     setAnswers((prevAnswers) => ({

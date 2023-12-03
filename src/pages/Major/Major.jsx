@@ -8,18 +8,31 @@ import { Row, Col, Button } from "react-bootstrap";
 
 import TitleComponent from "../../Components/TitleComponent/TitleComponent";
 import { NavLink, useParams } from "react-router-dom";
-import Logo from "../../assets/images/logo_sgu.jpg";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { setLoading } from "../../redux/features/MajorSlice/MajorSlice";
+import Loading from "../../Components/Loading/Loading";
 
 const cx = className.bind(styles);
 const Major = () => {
+  const dispatch = useDispatch();
   const { nameUni } = useParams();
 
-  const listMajor = [
-    { id: 1, major: "Công nghệ thông tin", logo: Logo, numSubject: 5 },
-    { id: 2, major: "Sư phạm tiểu học", logo: Logo, numSubject: 5 },
-    { id: 3, major: "Y đa khoa", logo: Logo, numSubject: 5 },
-  ];
+  const listMajor = useSelector((data) => data.major.data);
+  const isLoading = useSelector((data) => data.major.loading);
 
+  useEffect(() => {
+    const delay = setTimeout(() => {
+      dispatch(setLoading(false));
+    }, 1000);
+
+    return () => clearTimeout(delay);
+  }, [dispatch]);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+  
   return (
     <Container className={cx("container")}>
       <Row className={cx("content")}>
